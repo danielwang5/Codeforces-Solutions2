@@ -6,12 +6,36 @@ import java.util.StringTokenizer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class C612A {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		FastReader sc=new FastReader();
 	
 		int n = sc.nextInt();
-		
+		for(int y=0; y<n; y++){
+			int nn = sc.nextInt();
+			int ans = 0;
+			int cnt = 0;
+			boolean ang = false;
+			String[] s = sc.next().split("");
+			for(String ss: s) {
+				if(ss.equals("A")) {
+					if (!ang) {
+						ang = true;
+						
+					} else {
+						cnt = 0;
+					}
+				} else {
+					if(ang) {
+						cnt++;
+						if(cnt>ans) {
+							ans = cnt;
+						}
+					}
+				}
+			}
+			System.out.println(ans);
+		}
 	}
 	
 	static class FastReader{BufferedReader br;StringTokenizer st;public FastReader()

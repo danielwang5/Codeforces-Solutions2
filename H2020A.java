@@ -6,11 +6,28 @@ import java.util.StringTokenizer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class H2020A {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		FastReader sc=new FastReader();
 	
 		int n = sc.nextInt();
+		int m = sc.nextInt();
+		
+		String[] first = new String[n];
+		String[] second = new String[m];
+		
+		for(int y=0; y<n; y++){
+			first[y] = sc.next();
+		}
+		for(int y=0; y<m; y++){
+			second[y] = sc.next();
+		}
+		int t = sc.nextInt();
+		for(int y=0; y<t; y++){
+			int year = sc.nextInt();
+			year--;
+			System.out.println(first[year%n]+second[year%m]);
+		}
 		
 	}
 	

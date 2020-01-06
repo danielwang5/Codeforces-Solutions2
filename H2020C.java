@@ -6,12 +6,31 @@ import java.util.StringTokenizer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class H2020C {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		FastReader sc=new FastReader();
 	
-		int n = sc.nextInt();
+		long n = sc.nextLong();
+		long p = sc.nextLong();
 		
+		long[] facs = new long[250001];
+		facs[1] = 1;
+		for (int x=2; x<facs.length; x++) {
+			facs[x] = (facs[x-1]*(long)x)%p;
+		}
+		
+		long ans = 0;
+		
+		for(int y=1; y<=n; y++) {
+			long far = y;
+			far *= facs[y];
+			far %= p;
+			far *= facs[(int)n-y+1];
+			far %= p;
+			ans += far;
+			ans %= p;
+		}
+		System.out.print(ans);
 	}
 	
 	static class FastReader{BufferedReader br;StringTokenizer st;public FastReader()
