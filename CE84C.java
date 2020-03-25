@@ -5,12 +5,36 @@ import java.util.StringTokenizer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class CE84C {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		FastReader sc=new FastReader();
 	
 		int n = sc.nextInt();
+		int m = sc.nextInt();
 		
+		System.out.println((n-1)+(m-1)+(n*m-1));
+		
+		for(int x=0; x<n-1; x++) {
+			System.out.print("D");
+		}
+		for(int y=0; y<m-1; y++) {
+			System.out.print("L");
+		}
+		
+		for(int y=0; y<=m-1; y++) {
+			if(y%2==0) {
+				for(int x=0; x<n-1; x++) {
+					System.out.print("U");
+				}
+			} else {
+				for(int x=0; x<n-1; x++) {
+					System.out.print("D");
+				}
+			}
+			if(y!=m-1) {
+				System.out.print("R");
+			}
+		}
 	}
 	
 	static class FastReader{BufferedReader br;StringTokenizer st;public FastReader()

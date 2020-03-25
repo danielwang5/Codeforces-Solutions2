@@ -3,13 +3,58 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-public class Template2 {
+public class CE84B {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		FastReader sc=new FastReader();
 	
-		int n = sc.nextInt();
+		int t = sc.nextInt();
+		for(int x=0; x<t; x++) {
+			int n = sc.nextInt();
+			int c = 0;
+			
+			boolean[] princess = new boolean[n];
+			boolean[] prince = new boolean[n];
+			for(int y=0; y<n; y++) {
+				int len = sc.nextInt();
+				//int[] list = new int[len];
+				for(int j=0; j<len; j++) {
+					int kingdom = sc.nextInt()-1;
+					if(!princess[y] && !prince[kingdom]) {
+						prince[kingdom] = true;
+						princess[y] = true;
+						c++;
+					}
+					//list[j] = sc.nextInt();
+				}
+				
+				
+			}
+			
+			if (c >= n) {
+				System.out.println("OPTIMAL");
+			} else {
+				System.out.println("IMPROVE");
+				int p1 = 0,p2=0;
+				for(int z=0; z<n; z++) {
+					if(!princess[z]) {
+						p1 = z+1;
+						break;
+					}
+				}
+				for(int z=0; z<n; z++) {
+					if(!prince[z]) {
+						p2 = z+1;
+						break;
+					}
+				}
+//				System.out.println(Arrays.toString(princess));
+//				System.out.println(Arrays.toString(prince));
+				System.out.println(p1+" "+p2);
+			}
+		}
 		
 	}
 	

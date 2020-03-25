@@ -1,15 +1,40 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner; 
 import java.util.StringTokenizer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class CE80A {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		FastReader sc=new FastReader();
 	
-		int n = sc.nextInt();
+		int t = sc.nextInt();
+		
+		for(int x=0; x<t; x++) {
+			long n = sc.nextLong();
+			long d = sc.nextLong();
+			
+			long s = (long) Math.floor(Math.sqrt(d));
+			long min = 0;
+			if(d == 1) {
+				min = 1;
+			} else if (d == 2) {
+				min = 2;
+			}else if(s*s == d) {
+				min = 2*s-1;
+			} else {
+				min = (long) (s + Math.ceil((double)d/(double)(s+1)));
+			}
+			
+			//System.out.println(min);
+			if(min <= n) {
+				System.out.println("YES");
+			} else {
+				System.out.println("NO");
+			}
+		}
 		
 	}
 	

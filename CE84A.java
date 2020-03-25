@@ -5,11 +5,21 @@ import java.util.StringTokenizer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class CE84A {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		FastReader sc=new FastReader();
-	
-		int n = sc.nextInt();
+		int t = sc.nextInt();
+		for(int y=0; y<t; y++){
+			long n = sc.nextLong();
+			long k = sc.nextLong();
+			
+			long j = n - (k*k);
+			if (j >= 0 && j%2==0) {
+				System.out.println("YES");
+			} else {
+				System.out.println("NO");
+			}
+		}
 		
 	}
 	
