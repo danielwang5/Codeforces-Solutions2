@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class CE91B {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		FastReader sc = new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
@@ -15,7 +15,38 @@ public class Template2 {
 		int t = sc.nextInt();
 		
 		for(int tt=0; tt<t; tt++) {
+			String s = sc.next();
+			char[] c = s.toCharArray();
+			int rock = 0;
+			int paper = 0;
+			int scissors = 0;
+			for(char ch: c) {
+				if(ch == 'R') {
+					paper++;
+				} else if(ch == 'P') {
+					scissors++;
+				} else {
+					rock++;
+				}
+			}
 			
+			int tot = rock+paper+scissors;
+			
+			if (rock >= paper && rock >= scissors) {
+				for(int i=0; i<tot; i++) {
+					out.print("R");
+				}
+			} else if (paper >= scissors) {
+				for(int i=0; i<tot; i++) {
+					out.print("P");
+				}
+			} else {
+				for(int i=0; i<tot; i++) {
+					out.print("S");
+				}
+			}
+			
+			out.println();
 			
 		}
 		

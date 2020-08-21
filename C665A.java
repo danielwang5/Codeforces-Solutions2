@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class C665A {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		FastReader sc = new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
@@ -15,8 +15,19 @@ public class Template2 {
 		int t = sc.nextInt();
 		
 		for(int tt=0; tt<t; tt++) {
+			int a = sc.nextInt();
+			int k = sc.nextInt();
 			
+			if (a <= k) {
+				out.println(k-a);
+				continue;
+			}
 			
+			if(a%2 != k%2) {
+				out.println(1);
+			} else {
+				out.println(0);
+			}
 		}
 		
 		out.flush();

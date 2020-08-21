@@ -7,16 +7,26 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class C647C {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		FastReader sc = new FastReader();
+		FastReader sc=new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
 	
 		int t = sc.nextInt();
 		
 		for(int tt=0; tt<t; tt++) {
+			long n = sc.nextLong();
 			
+			long ans = 0;
+			long mult = 1;
 			
+			while(n > 0) {
+				ans += (n+1)/2*mult;
+				mult++;
+				n /= 2;
+			}
+			
+			out.println(ans);
 		}
 		
 		out.flush();

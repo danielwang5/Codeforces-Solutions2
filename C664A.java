@@ -5,19 +5,57 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class Template2 {
+public class C664A {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		FastReader sc = new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
 	
-		int t = sc.nextInt();
+		int n = sc.nextInt();
+		int d = sc.nextInt();
+		long m = sc.nextLong();
 		
-		for(int tt=0; tt<t; tt++) {
+		long ans = 0;
+		
+		ArrayList<Integer> less = new ArrayList<>();
+		ArrayList<Integer> more = new ArrayList<>();
+		
+		for(int x=0; x<n; x++) {
+			int val = sc.nextInt();
+			if(val <= m) {
+				less.add(val);
+			} else {
+				more.add(val);
+			}
+		}
+		
+		long unbansum = 0;
+		int uptr = 0;
+		int mptr = 0;
+		
+		int left = n;
+		
+		Collections.sort(less,Collections.reverseOrder());
+		Collections.sort(more,Collections.reverseOrder());
+		
+		while(left > 0) {
+			if(less.size()-uptr >= d+1) {
+				for(int x=0; x<d+1; x++) {
+					unbansum += less.get(uptr);
+					uptr++;
+				}
+			}
 			
+			if(mptr >= more.size()) {
+				ans += unbansum;
+				unbansum = 0;
+			}
 			
 		}
+		
+		
 		
 		out.flush();
 	}

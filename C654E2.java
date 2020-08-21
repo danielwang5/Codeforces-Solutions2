@@ -5,18 +5,61 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-public class Template2 {
+public class C654E2 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		FastReader sc = new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
 	
-		int t = sc.nextInt();
+		int n = sc.nextInt();
+		int p = sc.nextInt();
 		
-		for(int tt=0; tt<t; tt++) {
+		int[] a = new int[n];
+		
+		for(int x=0; x<n; x++) {
+			a[x] = sc.nextInt();
+		}
+		
+		Arrays.sort(a);
+		
+		ArrayList<Integer> ans = new ArrayList<Integer>();
+	
+		int min = -9;
+		int max = 2000000000;
+		
+		for(int i=0; i<n; i++) {
+			int val = a[i];
 			
+			int newmin = val-i;
+			if(min < newmin) {
+				min = newmin;
+			}
+		}
+		
+		for(int i=0; i<n-p+1; i++) {
+			int val2 = a[i+p-1];
 			
+			int newmax = val2 - i - 1;
+			if(max > newmax) {
+				max = newmax;
+				if(max < min) {
+					break;
+				}
+			}
+		}
+		
+		if(max-min+1>0) {
+			out.println(max-min+1);
+			
+			for(int i=min; i<=max; i++) {
+				out.print(i);
+				out.print(" ");
+			}
+			out.println();
+		} else {
+			out.println(0);
 		}
 		
 		out.flush();

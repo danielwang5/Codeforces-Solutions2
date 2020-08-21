@@ -7,15 +7,25 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class C647E {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		FastReader sc = new FastReader();
+		FastReader sc=new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
 	
 		int t = sc.nextInt();
 		
 		for(int tt=0; tt<t; tt++) {
+			int n = sc.nextInt();
+			int p = sc.nextInt();
 			
+			int max = 0;
+			int[] k = new int[n];
+			for(int x=0; x<n; x++) {
+				k[x] = sc.nextInt();
+				if(k[x] > max) {
+					max = k[x];
+				}
+			}
 			
 		}
 		

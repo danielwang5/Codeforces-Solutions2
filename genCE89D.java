@@ -7,18 +7,21 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class genCE89D {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		FastReader sc = new FastReader();
+		FastReader sc=new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
 	
-		int t = sc.nextInt();
+		out.println("500000");
 		
-		for(int tt=0; tt<t; tt++) {
-			
-			
+		for(int tt=0; tt<500000; tt++) {
+			out.print("9790577");
+			if(tt < 500000-1) {
+				out.print(" ");
+			}
 		}
 		
+		out.println();
 		out.flush();
 	}
 	

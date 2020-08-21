@@ -7,15 +7,54 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class CE88B {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		FastReader sc = new FastReader();
+		FastReader sc=new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
 	
 		int t = sc.nextInt();
 		
 		for(int tt=0; tt<t; tt++) {
+			int n = sc.nextInt();
+			int m = sc.nextInt();
+			int one = sc.nextInt();
+			int two = sc.nextInt();
 			
+			int ans = 0;
+			boolean wp = false;
+			
+			if (one * 2 <= two) {
+				for(int i=0; i<n; i++) {
+					char[] s = sc.next().toCharArray();
+					for(int j=0; j<m; j++) {
+						char c = s[j];
+						if(c == '.') {
+							ans += one;
+						}
+					}
+				}
+				out.println(ans);
+			} else {
+				for(int i=0; i<n; i++) {
+					char[] s = sc.next().toCharArray();
+					for(int j=0; j<m; j++) {
+						char c = s[j];
+						if(c == '.') {
+							if (!wp) {
+								ans += one;
+								wp = true;
+							} else {
+								wp = false;
+								ans += two - one;
+							}
+						} else {
+							wp = false;
+						}
+					}
+					wp = false;
+				}
+				out.println(ans);
+			}
 			
 		}
 		

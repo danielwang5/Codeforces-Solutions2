@@ -7,15 +7,39 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class C646C {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		FastReader sc = new FastReader();
+		FastReader sc=new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
 	
 		int t = sc.nextInt();
 		
 		for(int tt=0; tt<t; tt++) {
+			int n = sc.nextInt();
+			int x = sc.nextInt();
 			
+			int neigh = 0;
+			
+			for(int i=0; i<n-1; i++) {
+				int u = sc.nextInt();
+				int v = sc.nextInt();
+				
+				if (u==x || v==x) {
+					neigh++;
+				}
+			}
+			
+			if(neigh <= 1) {
+				out.println("Ayush");
+				continue;
+			}
+			
+			int edges = n-1;
+			if(edges % 2 == 0) {
+				out.println("Ashish");
+			} else {
+				out.println("Ayush");
+			}
 			
 		}
 		

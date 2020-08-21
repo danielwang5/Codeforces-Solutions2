@@ -7,15 +7,35 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class CE89B {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		FastReader sc = new FastReader();
+		FastReader sc=new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
 	
 		int t = sc.nextInt();
 		
 		for(int tt=0; tt<t; tt++) {
+			int n = sc.nextInt();
+			int x = sc.nextInt();
+			int m = sc.nextInt();
 			
+			int min = x;
+			int max = x;
+			
+			for(int i=0; i<m; i++) {
+				int l = sc.nextInt();
+				int r = sc.nextInt();
+				if(l <= max && r >= min) {
+					if(l < min) {
+						min = l;
+					}
+					if (r > max) {
+						max = r;
+					}
+				}
+			}
+			
+			out.println(max - min + 1);
 			
 		}
 		

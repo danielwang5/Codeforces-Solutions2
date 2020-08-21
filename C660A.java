@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class C660A {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		FastReader sc = new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
@@ -15,7 +15,23 @@ public class Template2 {
 		int t = sc.nextInt();
 		
 		for(int tt=0; tt<t; tt++) {
+			int n = sc.nextInt();
 			
+			if(n < 31) {
+				out.println("NO");
+				continue;
+			}
+			
+			out.println("YES");
+			if(n == 6+10+14+6) {
+				out.println("6 10 15 5");
+			} else if(n == 6+10+14+10) {
+				out.println("6 10 15 9");
+			} else if(n == 6+10+14+14) {
+				out.println("6 10 15 13");
+			} else {
+				out.println("6 10 14 "+(n-(6+10+14)));
+			}
 			
 		}
 		

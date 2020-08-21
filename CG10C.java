@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class CG10C {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		FastReader sc = new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
@@ -15,8 +15,20 @@ public class Template2 {
 		int t = sc.nextInt();
 		
 		for(int tt=0; tt<t; tt++) {
+			int n = sc.nextInt();
+			long ans = 0;
+			long last = sc.nextLong();
+//			long depth = 0;
 			
+			for(int i=1; i<n; i++) {
+				long next = sc.nextLong();
+				if(next < last) {
+					ans += last - next;
+				}
+				last = next;
+			}
 			
+			out.println(ans);
 		}
 		
 		out.flush();

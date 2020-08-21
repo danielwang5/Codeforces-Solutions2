@@ -7,16 +7,59 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class C648A {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		FastReader sc = new FastReader();
+		FastReader sc=new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
 	
 		int t = sc.nextInt();
 		
 		for(int tt=0; tt<t; tt++) {
+			int r = sc.nextInt();
+			int c = sc.nextInt();
 			
+			int[][] mat = new int[r][c];
 			
+			for(int i=0; i<r; i++) {
+				for(int j=0; j<c; j++) {
+					mat[i][j] = sc.nextInt();
+				}
+			}
+			
+			int er = 0;
+			int ec = 0;
+			
+			for(int i=0; i<r; i++) {
+				boolean empty = true;
+				for(int j=0; j<c; j++) {
+					if(mat[i][j] == 1) {
+						empty = false;
+						break;
+					}
+				}
+				if(empty) {
+					er++;
+				}
+			}
+			for(int j=0; j<c; j++) {
+				boolean empty = true;
+				for(int i=0; i<r; i++) {
+					if(mat[i][j] == 1) {
+						empty = false;
+						break;
+					}
+				}
+				if(empty) {
+					ec++;
+				}
+			}
+			
+			int a = Math.min(er, ec);
+			if (a % 2 == 0) {
+				out.println("Vivek");
+			} else {
+				out.println("Ashish");
+			}
 		}
 		
 		out.flush();

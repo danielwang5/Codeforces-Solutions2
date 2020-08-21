@@ -7,15 +7,28 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class CE88A {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		FastReader sc = new FastReader();
+		FastReader sc=new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
 	
 		int t = sc.nextInt();
 		
 		for(int tt=0; tt<t; tt++) {
+			int cards = sc.nextInt();
+			int jokers = sc.nextInt();
+			int players = sc.nextInt();
 			
+			int hand = cards/players;
+			
+			if(jokers <= hand) {
+				out.println(jokers);
+			} else {
+				int remain = jokers - hand;
+				int mx = (remain + (players-2)) / (players-1);
+				out.println(hand - mx);
+			}
+				
 			
 		}
 		

@@ -5,19 +5,56 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-public class Template2 {
+public class C654E {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		FastReader sc = new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
 	
-		int t = sc.nextInt();
+		int n = sc.nextInt();
+		int p = sc.nextInt();
 		
-		for(int tt=0; tt<t; tt++) {
-			
-			
+		int[] a = new int[n];
+		
+		for(int x=0; x<n; x++) {
+			a[x] = sc.nextInt();
 		}
+		
+		Arrays.sort(a);
+		
+		ArrayList<Integer> ans = new ArrayList<Integer>();
+	
+		for(int x=a[0]; x<=2000; x++) {
+			//out.println(x);out.flush();
+			int i = 0;
+			int add = 0;
+			boolean res = true;
+			while(true) {
+				while(i < n && a[i] <= x+add) {
+					i++;
+				}
+				if ((i-add)%p == 0 || (i-add)>p) {
+					res = false;
+					break;
+				}
+				add++;
+				if(add >= n) {
+					break;
+				}
+			}
+			if(res) {
+				ans.add(x);
+			}
+		}
+		
+		out.println(ans.size());
+		for(int i:ans) {
+			out.print(i);
+			out.print(" ");
+		}
+		out.println();
 		
 		out.flush();
 	}

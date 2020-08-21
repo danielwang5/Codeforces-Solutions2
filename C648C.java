@@ -5,19 +5,48 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-public class Template2 {
+public class C648C {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		FastReader sc = new FastReader();
+		FastReader sc=new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
 	
-		int t = sc.nextInt();
+		int n = sc.nextInt();
+
+		HashMap<Integer, Integer> p1 = new HashMap<Integer, Integer>();
+		HashMap<Integer, Integer> p2 = new HashMap<Integer, Integer>();
 		
-		for(int tt=0; tt<t; tt++) {
-			
-			
+		for(int i=0; i<n; i++) {
+			p1.put(sc.nextInt(), i);
 		}
+		
+		for(int i=0; i<n; i++) {
+			p2.put(sc.nextInt(), i);
+		}
+		
+		int max = 0;
+		HashMap<Integer, Integer> shift = new HashMap<Integer, Integer>();
+		
+		for(int i=1; i<=n; i++) {
+			int x1 = p1.get(i);
+			int x2 = p2.get(i);
+			int s = x2 - x1;
+			if(s < 0) {
+				s+=n;
+			}
+			if(!shift.containsKey(s)) {
+				shift.put(s, 0);
+			}
+			int nxt = shift.get(s)+1;
+			if(max < nxt) {
+				max = nxt;
+			}
+			shift.put(s, nxt);
+		}
+		
+		out.print(max);
 		
 		out.flush();
 	}

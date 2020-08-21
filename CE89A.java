@@ -7,16 +7,24 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class CE89A {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		FastReader sc = new FastReader();
+		FastReader sc=new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
 	
 		int t = sc.nextInt();
 		
 		for(int tt=0; tt<t; tt++) {
+			int a = sc.nextInt();
+			int b = sc.nextInt();
 			
-			
+			if(a >= 2*b) {
+				out.println(b);
+			} else if (b >= 2*a){
+				out.println(a);
+			} else {
+				out.println((a+b)/3);
+			}
 		}
 		
 		out.flush();

@@ -7,15 +7,40 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class C646A {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		FastReader sc = new FastReader();
+		FastReader sc=new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
 	
 		int t = sc.nextInt();
 		
 		for(int tt=0; tt<t; tt++) {
+			int x = sc.nextInt();
+			int n = sc.nextInt();
+			int odd = 0;
+			int even = 0;
+			int sum = 0;
 			
+			for(int i=0; i<x; i++) {
+				int v = sc.nextInt();
+				sum += v;
+				
+				if(v%2 == 0) {
+					even++;
+				} else {
+					odd++;
+				}
+			}
+			
+			if(odd == 0) {
+				out.println("No");
+			} else if(even == 0 && n%2 == 0) {
+				out.println("No");
+			} else if(x == n && sum%2==0) {
+				out.println("No");
+			} else {
+				out.println("Yes");
+			}
 			
 		}
 		

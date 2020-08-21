@@ -5,9 +5,10 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-public class Template2 {
+public class CE91A {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		FastReader sc = new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
@@ -15,6 +16,39 @@ public class Template2 {
 		int t = sc.nextInt();
 		
 		for(int tt=0; tt<t; tt++) {
+			int n = sc.nextInt();
+			//int[] a = new int[n];
+			HashMap<Integer,Integer> h = new HashMap<Integer,Integer>();
+			
+			for(int i=0; i<n; i++) {
+				h.put(sc.nextInt(),i+1);
+			}
+			
+			int l = 1;
+			int r = n;
+			
+			boolean found = false;
+			
+			for(int i=n; i>2; i--) {
+				int ind = h.get(i);
+				if(ind != l && ind != r) {
+					found = true;
+					out.println("YES");
+					out.println((l)+" "+(ind)+" "+(r));
+					break;
+				} else {
+					if (ind==l) {
+						l++;
+					} else {
+						r--;
+					}
+				}
+			}
+			
+			if (!found) {
+				out.println("NO");
+			}
+			
 			
 			
 		}

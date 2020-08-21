@@ -7,19 +7,51 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class C662E {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		FastReader sc = new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
 	
-		int t = sc.nextInt();
+		int n = sc.nextInt();
+		ArrayList<char[]> words = new ArrayList<>();
 		
-		for(int tt=0; tt<t; tt++) {
-			
-			
+		for(int tt=0; tt<n; tt++) {
+			words.add(sc.next().toCharArray());
 		}
 		
 		out.flush();
+		
+		
+	}
+	
+//	class StrComparator implements Comparator<char[]> {
+//	// true if b later or equal
+	static boolean compare(char[] a, char[] b, int ax, int bx) {
+		int pa = 0;
+		int pb = 0;
+		
+		int lena = a.length - ((ax == -1) ? 0 : 1);
+		int lenb = b.length - ((bx == -1) ? 0 : 1);
+		
+		for(int it=0; it<Math.min(lena, lenb); it++) {
+			if(pa == ax) {
+				pa++;
+			}
+			if(pb == bx){
+				pb++;
+			}
+			
+			if(a[pa] > b[pb]) {
+				return false;
+			} else if(a[pa] < b[pb]) {
+				return true;
+			}
+			
+			pa++;
+			pb++;
+		}
+		
+		return b.length >= a.length;
 	}
 	
 	static class FastReader{BufferedReader br;StringTokenizer st;public FastReader()

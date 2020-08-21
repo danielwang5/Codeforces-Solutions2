@@ -7,17 +7,33 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class C663C {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		FastReader sc = new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
 	
-		int t = sc.nextInt();
+		int n = sc.nextInt();
 		
-		for(int tt=0; tt<t; tt++) {
-			
-			
+		int mod = 1000_000_007;
+		
+		// n! - 2**(n-1)
+		
+		long fac = 1;
+		for(int m=2; m<=n; m++) {
+			fac *= m;
+			fac %= mod;
 		}
+		
+		long two = 1;
+		for(int m=1; m<=n-1; m++) {
+			two *= 2;
+			two %= mod;
+		}
+		long ans = fac-two;
+		if(ans < 0) {
+			ans += mod;
+		}
+		out.println(ans%mod);
 		
 		out.flush();
 	}

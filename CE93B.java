@@ -5,9 +5,10 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class Template2 {
+public class CE93B {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		FastReader sc = new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
@@ -15,8 +16,34 @@ public class Template2 {
 		int t = sc.nextInt();
 		
 		for(int tt=0; tt<t; tt++) {
+			char[] ch = sc.next().toCharArray();
+			int len = ch.length;
 			
+			ArrayList<Integer> a = new ArrayList<>();
+			int cum = 0;
 			
+			for(int x=0; x<len; x++) {
+				if(ch[x] == '1') {
+					cum++;
+				} else {
+					if(cum > 0) {
+						a.add(cum);
+						cum = 0;
+					}
+				}
+			}
+			if(cum > 0) {
+				a.add(cum);
+			}
+			
+			Collections.sort(a, Collections.reverseOrder());
+			
+			int ans = 0;
+			for(int i=0; i<a.size(); i+=2) {
+				ans += a.get(i);
+			}
+			
+			out.println(ans);
 		}
 		
 		out.flush();

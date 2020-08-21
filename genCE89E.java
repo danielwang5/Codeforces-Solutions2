@@ -7,17 +7,14 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class genCE89E {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		FastReader sc = new FastReader();
+		FastReader sc=new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
 	
-		int t = sc.nextInt();
-		
-		for(int tt=0; tt<t; tt++) {
-			
-			
-		}
+		out.println("10 3");
+		out.println("2 3 2 5 4 3 4 5 4 5");
+		out.println("2 3 4");
 		
 		out.flush();
 	}

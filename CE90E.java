@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class CE90E {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		FastReader sc = new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
@@ -15,11 +15,56 @@ public class Template2 {
 		int t = sc.nextInt();
 		
 		for(int tt=0; tt<t; tt++) {
+			int n = sc.nextInt();
+			int k = sc.nextInt();
 			
+			// little endian
+			
+			int[] d = new int[18];
+			
+			
+			int start = 1;
+			int cons = ((k)*(k+1))/2;
+			while(cons < n) {
+				start++;
+				cons += k;
+			}
+			
+			if(cons == n) {
+				// make min with start
+			}else {
+				cons -= 9;
+				
+			}
 			
 		}
 		
 		out.flush();
+	}
+	
+	static int csum(int[] d, int k) {
+		int sum = 0;
+		int[] dd = d.clone();
+		for(int x=0; x<=k; x++) {
+			sum += digitsum(dd);
+			
+			for(int p=0; p<18; p++) {
+				dd[p] = (dd[p]+1)%10;
+				if(dd[p] != 0) {
+					break;
+				}
+			}
+		}
+		
+		return sum;
+	}
+	
+	static int digitsum(int[] d) {
+		int sum = 0;
+		for(int dd:d) {
+			sum += dd;
+		}
+		return sum;
 	}
 	
 	static class FastReader{BufferedReader br;StringTokenizer st;public FastReader()

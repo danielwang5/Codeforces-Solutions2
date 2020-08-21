@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Template2 {
+public class C658A {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		FastReader sc = new FastReader();
 		PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
@@ -15,8 +15,43 @@ public class Template2 {
 		int t = sc.nextInt();
 		
 		for(int tt=0; tt<t; tt++) {
+			int n = sc.nextInt();
+			boolean[] a = new boolean[n];
+			boolean[] b = new boolean[n];
 			
+			char[] aa = sc.next().toCharArray();
+			char[] bb = sc.next().toCharArray();
 			
+			for(int i=0; i<n; i++) {
+				a[i] = (aa[i] == '1');
+				b[i] = (bb[i] == '1');
+			}
+			
+			ArrayList<Integer> ans = new ArrayList<Integer>();
+			
+			for(int i=0; i<n; i++) {
+				int ai=0;
+				if(i%2 == 0) {
+					ai = i/2;
+				} else {
+					ai = (n-1) - i/2;
+				}
+				int bi = (n-1)-i;
+				
+				if((i%2==0 && a[ai] == b[bi]) || (i%2==1 && a[ai] != b[bi])) {
+					ans.add(1);
+				}
+				ans.add(bi+1);
+			}
+			
+			out.print(ans.size());
+			out.print(" ");
+			
+			for(int an: ans) {
+				out.print(an);
+				out.print(" ");
+			}
+			out.println();
 		}
 		
 		out.flush();
